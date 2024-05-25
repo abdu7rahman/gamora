@@ -1,0 +1,453 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- This URDF was automatically created by SolidWorks to URDF Exporter! Originally created by Stephen Brawner (brawner@gmail.com) 
+     Commit Version: 1.6.0-4-g7f85cfe  Build Version: 1.6.7995.38578
+     For more information, please see http://wiki.ros.org/sw_urdf_exporter -->
+<robot
+  name="gamora_test_v6">
+  <link
+    name="base_link">
+    <inertial>
+      <origin
+        xyz="3.65777844801504E-05 2.77555756156289E-17 0.0248449579558632"
+        rpy="0 0 0" />
+      <mass
+        value="0.399226749447396" />
+      <inertia
+        ixx="0.000338857393371017"
+        ixy="-1.8589228845618E-20"
+        ixz="2.49780793186613E-07"
+        iyy="0.000338167249915356"
+        iyz="3.04236737840247E-21"
+        izz="0.000508963696511292" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://gamora_test_v6/meshes/base_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="1 1 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://gamora_test_v6/meshes/base_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <link
+    name="link1">
+    <inertial>
+      <origin
+        xyz="0.000203904273205269 0.00690174040126276 0.0696448332683273"
+        rpy="0 0 0" />
+      <mass
+        value="0.105637680050857" />
+      <inertia
+        ixx="8.14075015402512E-05"
+        ixy="2.92481051385473E-07"
+        ixz="-2.69627783382397E-07"
+        iyy="9.12846816690063E-05"
+        iyz="-9.12301677438067E-06"
+        izz="7.19712643808705E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://gamora_test_v6/meshes/link1.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="1 1 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://gamora_test_v6/meshes/link1.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="joint1"
+    type="revolute">
+    <origin
+      xyz="0 0 0"
+      rpy="0 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="link1" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="0"
+      upper="3.142"
+      effort="300"
+      velocity="3" />
+  </joint>
+  <link
+    name="link2">
+    <inertial>
+      <origin
+        xyz="0.000628073458806618 0.0699971822556392 -0.0088809433904268"
+        rpy="0 0 0" />
+      <mass
+        value="0.174069507366719" />
+      <inertia
+        ixx="0.000529734788095819"
+        ixy="-4.4525039393708E-06"
+        ixz="-1.54159996400283E-19"
+        iyy="3.35545517835824E-05"
+        iyz="-1.54501147838029E-19"
+        izz="0.00054781622429636" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://gamora_test_v6/meshes/link2.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="1 1 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://gamora_test_v6/meshes/link2.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="joint2"
+    type="revolute">
+    <origin
+      xyz="-0.00051701 -0.017492 0.09355"
+      rpy="1.5708 0 -0.029548" />
+    <parent
+      link="link1" />
+    <child
+      link="link2" />
+    <axis
+      xyz="0 0 -1" />
+    <limit
+      lower="-1.57"
+      upper="1.57"
+      effort="200"
+      velocity="3" />
+  </joint>
+  <link
+    name="link3">
+    <inertial>
+      <origin
+        xyz="0.0366788617362141 0.00208846220668052 0.0310720174667563"
+        rpy="0 0 0" />
+      <mass
+        value="0.132745210164604" />
+      <inertia
+        ixx="2.85305184413705E-05"
+        ixy="-8.60928523183419E-06"
+        ixz="-1.00282255512552E-06"
+        iyy="0.000179244680044518"
+        iyz="-5.71302653222537E-08"
+        izz="0.000194704394871312" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://gamora_test_v6/meshes/link3.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="1 1 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://gamora_test_v6/meshes/link3.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="joint3"
+    type="revolute">
+    <origin
+      xyz="0.0012561 0.13999 0"
+      rpy="-3.1416 0 0" />
+    <parent
+      link="link2" />
+    <child
+      link="link3" />
+    <axis
+      xyz="0 0 -1" />
+    <limit
+      lower="0"
+      upper="3.14"
+      effort="200"
+      velocity="3" />
+  </joint>
+  <link
+    name="link4">
+    <inertial>
+      <origin
+        xyz="0.000850449527258018 -0.00423752049433902 -0.00215419972857081"
+        rpy="0 0 0" />
+      <mass
+        value="0.0290983429803089" />
+      <inertia
+        ixx="5.93598417078438E-06"
+        ixy="-9.79881236563727E-08"
+        ixz="9.88461005656221E-07"
+        iyy="7.02422317652868E-06"
+        iyz="2.48371414138487E-07"
+        izz="3.82208175714108E-06" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://gamora_test_v6/meshes/link4.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="1 1 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://gamora_test_v6/meshes/link4.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="joint4"
+    type="revolute">
+    <origin
+      xyz="0.1228 0.0069922 0.02685"
+      rpy="-1.5671 -0.0092721 1.2517" />
+    <parent
+      link="link3" />
+    <child
+      link="link4" />
+    <axis
+      xyz="0.36717 0 -0.93015" />
+    <limit
+      lower="0"
+      upper="3.14"
+      effort="200"
+      velocity="3" />
+  </joint>
+  <link
+    name="link5">
+    <inertial>
+      <origin
+        xyz="0.0154747264382004 -0.00293153502993415 -0.0118794881006278"
+        rpy="0 0 0" />
+      <mass
+        value="0.0133014644417735" />
+      <inertia
+        ixx="5.72458858793224E-06"
+        ixy="9.69229819207655E-08"
+        ixz="5.38523923657501E-07"
+        iyy="5.85854634434417E-06"
+        iyz="-3.97526876859022E-08"
+        izz="1.92167712923785E-06" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://gamora_test_v6/meshes/link5.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="1 1 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://gamora_test_v6/meshes/link5.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="joint5"
+    type="revolute">
+    <origin
+      xyz="0.0052195 0.01385 -0.013223"
+      rpy="-1.5708 1.2517 0" />
+    <parent
+      link="link4" />
+    <child
+      link="link5" />
+    <axis
+      xyz="0.00010816 0 -1" />
+    <limit
+      lower="-1.57"
+      upper="1.57"
+      effort="200"
+      velocity="3" />
+  </joint>
+  <link
+    name="left_eef">
+    <inertial>
+      <origin
+        xyz="-0.005869137099802 -0.00134002890870294 0.0160665206489369"
+        rpy="0 0 0" />
+      <mass
+        value="0.00287309147599194" />
+      <inertia
+        ixx="8.49525819736948E-07"
+        ixy="-2.02981426911352E-09"
+        ixz="2.42809606060332E-08"
+        iyy="8.55686932309195E-07"
+        iyz="6.82126018110851E-08"
+        izz="4.6827937332767E-08" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://gamora_test_v6/meshes/left_eef.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="1 1 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://gamora_test_v6/meshes/left_eef.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="joint_leff"
+    type="prismatic">
+    <origin
+      xyz="0.0273987089896614 -0.00745168409423436 -0.0411928506891505"
+      rpy="1.89961667699159 1.57079631189374 1.90042073421564" />
+    <parent
+      link="link5" />
+    <child
+      link="left_eef" />
+    <axis
+      xyz="-0.999999994135008 0 0.000108161742346024" />
+    <limit
+      lower="-0.018"
+      upper="0"
+      effort="100"
+      velocity="3" />
+  </joint>
+  <link
+    name="right_eef">
+    <inertial>
+      <origin
+        xyz="0.00586913709979831 -0.00136734858500365 0.016064218657811"
+        rpy="0 0 0" />
+      <mass
+        value="0.00287309147599193" />
+      <inertia
+        ixx="8.49525819736946E-07"
+        ixy="2.06184834239177E-09"
+        ixz="-2.42782613737442E-08"
+        iyy="8.55544967518831E-07"
+        iyz="6.90490288816019E-08"
+        izz="4.69699021231317E-08" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://gamora_test_v6/meshes/right_eef.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="1 1 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://gamora_test_v6/meshes/right_eef.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="joint_reff"
+    type="prismatic">
+    <origin
+      xyz="0.027338 -0.0081751 0.010793"
+      rpy="-2.8191 1.5708 -2.8202" />
+    <parent
+      link="link5" />
+    <child
+      link="right_eef" />
+    <axis
+      xyz="1 0 -0.00010816" />
+    <limit
+      lower="-0.018"
+      upper="0"
+      effort="100"
+      velocity="3" />
+  </joint>
+</robot>
