@@ -1,0 +1,70 @@
+<?xml version="1.0"?>
+<!--
+  Xacro wrapper around the SolidWorks-exported URDF.
+
+  ROS 1 loaded the raw .urdf straight into the `robot_description` parameter and
+  bolted transmissions on through a separate <transmission> block. ROS 2 drives
+  hardware through ros2_control, which needs a <ros2_control> tag inside the
+  robot description, so the export is included unchanged and the control tags are
+  layered on here. Regenerating the export from SolidWorks will not clobber them.
+-->
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="gamora_test_v6">
+
+  <!-- "mock" drives the fake hardware component for planning without a robot;
+       "gazebo" swaps in the gz_ros2_control plugin. -->
+  <xacro:arg name="hardware" default="mock"/>
+  <xacro:arg name="initial_positions_file" default="$(find gamora_moveit_config)/config/initial_positions.yaml"/>
+
+  <xacro:property name="initial_positions"
+                  value="${xacro.load_yaml('$(arg initial_positions_file)')['initial_positions']}"/>
+
+  <!-- The geometry, links and joints exactly as exported. -->
+  <xacro:include filename="$(find gamora_description)/urdf/gamora_test_v6.urdf"/>
+
+  <ros2_control name="GamoraSystem" type="system">
+
+    <xacro:if value="${$(arg hardware) == 'mock'}">
+      <hardware>
+        <plugin>mock_components/GenericSystem</plugin>
+        <param name="calculate_dynamics">true</param>
+      </hardware>
+    </xacro:if>
+
+    <xacro:if value="${$(arg hardware) == 'gazebo'}">
+      <hardware>
+        <plugin>gz_ros2_control/GazeboSimSystem</plugin>
+      </hardware>
+    </xacro:if>
+
+    <!-- Arm joints. Limits come from the URDF; ros2_control only needs to know
+         which interfaces each joint exposes. -->
+    <xacro:macro name="joint_interfaces" params="name">
+      <joint name="${name}">
+        <command_interface name="position"/>
+        <state_interface name="position">
+          <param name="initial_value">${initial_positions[name]}</param>
+        </state_interface>
+        <state_interface name="velocity"/>
+      </joint>
+    </xacro:macro>
+
+    <xacro:joint_interfaces name="joint1"/>
+    <xacro:joint_interfaces name="joint2"/>
+    <xacro:joint_interfaces name="joint3"/>
+    <xacro:joint_interfaces name="joint4"/>
+    <xacro:joint_interfaces name="joint5"/>
+    <xacro:joint_interfaces name="joint_leff"/>
+    <xacro:joint_interfaces name="joint_reff"/>
+
+  </ros2_control>
+
+  <xacro:if value="${$(arg hardware) == 'gazebo'}">
+    <gazebo>
+      <plugin filename="gz_ros2_control-system"
+              name="gz_ros2_control::GazeboSimROS2ControlPlugin">
+        <parameters>$(find gamora_moveit_config)/config/ros2_controllers.yaml</parameters>
+      </plugin>
+    </gazebo>
+  </xacro:if>
+
+</robot>
