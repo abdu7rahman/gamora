@@ -1,0 +1,41 @@
+# ros2_control controller definitions. The ROS 1 ros_controllers.yaml in this
+# repo was empty, so MoveIt had nothing to execute against; these are the
+# controllers the SRDF groups imply.
+
+controller_manager:
+  ros__parameters:
+    update_rate: 100  # Hz
+
+    joint_state_broadcaster:
+      type: joint_state_broadcaster/JointStateBroadcaster
+
+    arm_controller:
+      type: joint_trajectory_controller/JointTrajectoryController
+
+    gripper_controller:
+      type: joint_trajectory_controller/JointTrajectoryController
+
+arm_controller:
+  ros__parameters:
+    joints:
+      - joint1
+      - joint2
+      - joint3
+      - joint4
+      - joint5
+    command_interfaces:
+      - position
+    state_interfaces:
+      - position
+      - velocity
+
+gripper_controller:
+  ros__parameters:
+    joints:
+      - joint_leff
+      - joint_reff
+    command_interfaces:
+      - position
+    state_interfaces:
+      - position
+      - velocity

@@ -1,0 +1,10 @@
+# Joint positions the mock hardware starts at. Zero for every joint, matching
+# the "home" group state in the SRDF.
+initial_positions:
+  joint1: 0.0
+  joint2: 0.0
+  joint3: 0.0
+  joint4: 0.0
+  joint5: 0.0
+  joint_leff: 0.0
+  joint_reff: 0.0

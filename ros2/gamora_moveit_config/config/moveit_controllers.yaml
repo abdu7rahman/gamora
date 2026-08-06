@@ -1,0 +1,29 @@
+# Tells MoveIt which ros2_control controllers to hand trajectories to.
+# Replaces the ROS 1 controllers.yaml / simple_moveit_controllers.yaml pair,
+# which were empty or setup-assistant stubs in the original.
+
+moveit_controller_manager: moveit_simple_controller_manager/MoveItSimpleControllerManager
+
+moveit_simple_controller_manager:
+  controller_names:
+    - arm_controller
+    - gripper_controller
+
+  arm_controller:
+    type: FollowJointTrajectory
+    action_ns: follow_joint_trajectory
+    default: true
+    joints:
+      - joint1
+      - joint2
+      - joint3
+      - joint4
+      - joint5
+
+  gripper_controller:
+    type: FollowJointTrajectory
+    action_ns: follow_joint_trajectory
+    default: true
+    joints:
+      - joint_leff
+      - joint_reff
