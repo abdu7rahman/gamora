@@ -13,6 +13,7 @@
   <!-- "mock" drives the fake hardware component for planning without a robot;
        "gazebo" swaps in the gz_ros2_control plugin. -->
   <xacro:arg name="hardware" default="mock"/>
+  <xacro:property name="hardware_type" value="$(arg hardware)"/>
   <xacro:arg name="initial_positions_file" default="$(find gamora_moveit_config)/config/initial_positions.yaml"/>
 
   <xacro:property name="initial_positions"
@@ -23,14 +24,14 @@
 
   <ros2_control name="GamoraSystem" type="system">
 
-    <xacro:if value="${$(arg hardware) == 'mock'}">
+    <xacro:if value="${hardware_type == 'mock'}">
       <hardware>
         <plugin>mock_components/GenericSystem</plugin>
         <param name="calculate_dynamics">true</param>
       </hardware>
     </xacro:if>
 
-    <xacro:if value="${$(arg hardware) == 'gazebo'}">
+    <xacro:if value="${hardware_type == 'gazebo'}">
       <hardware>
         <plugin>gz_ros2_control/GazeboSimSystem</plugin>
       </hardware>
@@ -58,7 +59,7 @@
 
   </ros2_control>
 
-  <xacro:if value="${$(arg hardware) == 'gazebo'}">
+  <xacro:if value="${hardware_type == 'gazebo'}">
     <gazebo>
       <plugin filename="gz_ros2_control-system"
               name="gz_ros2_control::GazeboSimROS2ControlPlugin">
